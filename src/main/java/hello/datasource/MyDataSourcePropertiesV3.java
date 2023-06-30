@@ -4,6 +4,7 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
+import org.hibernate.validator.constraints.time.DurationMax;
 import org.hibernate.validator.constraints.time.DurationMin;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.validation.annotation.Validated;
@@ -43,7 +44,7 @@ public class MyDataSourcePropertiesV3 {
         private int maxConnection;
 
         @DurationMin(seconds = 1)
-        @DurationMin(seconds = 60)
+        @DurationMax(seconds = 60)
         private Duration timeout;
         private List<String> options = new ArrayList<>();
 
